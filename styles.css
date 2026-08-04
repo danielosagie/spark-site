@@ -217,11 +217,12 @@ footer a:hover{color:#fff}
 .fbot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px}
 .social{display:flex;gap:22px}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(14px)}
-.rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(0,0,0,1),transform .6s cubic-bezier(0,0,0,1)}
+/* reveal — only hide when JS is present, so the page is readable without it */
+.js .rv{opacity:0;transform:translateY(14px)}
+.js .rv.in{opacity:1;transform:none;
+  transition:opacity .6s cubic-bezier(0,0,0,1),transform .6s cubic-bezier(0,0,0,1)}
 @media(prefers-reduced-motion:reduce){
-  .rv,.rv.in{opacity:1;transform:none;transition:none}
+  .js .rv,.js .rv.in{opacity:1;transform:none;transition:none}
   .eyebrow .dot{animation:none}
   html{scroll-behavior:auto}
 }
