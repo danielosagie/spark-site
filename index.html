@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Spark — Know first</title>
+<meta name="description" content="Local news the moment it happens, every side of the story, and a map of what is going on around you. Live in Atlanta.">
+<meta property="og:title" content="Spark — Know first">
+<meta property="og:description" content="Local news the moment it happens, every side of the story, and a map of what is going on around you. Live in Atlanta.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero_home.webp">
+<meta property="og:image:alt" content="Spark, a live local news network">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="/"><img class="logo" src="assets/spark_wordmark_white.png" alt="Spark"></a>
+    <nav class="nav-links">
+      <a href="#how">Feed</a><a href="#digest">Digest</a><a href="#map">Map</a>
+      <a href="#who">Creators</a><a href="#film">The film</a>
+    </nav>
+    <div class="nav-right">
+      <a class="signin" href="#get">Sign in</a>
+      <a class="btn sm" href="#get">Get Spark</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow rv"><span class="dot"></span> Now live in Atlanta</span>
+    <h1 class="d1 rv">Know first.</h1>
+    <p class="lead rv">Local news the moment it happens, every side of the story, and a map of
+      what is going on around you.</p>
+    <div class="hero-cta rv">
+      <a class="btn" href="#get">Sign up free</a>
+      <a class="btn ghost" href="#get">Get the app</a>
+    </div>
+    <div class="chips rv">
+      <a class="chip" href="#how">Feed</a><a class="chip" href="#digest">Digest</a>
+      <a class="chip" href="#map">Map</a><a class="chip" href="#search">Search</a>
+      <a class="chip" href="#trust">Notes</a><a class="chip" href="#who">Creators</a>
+    </div>
+    <div class="hero-art rv">
+      <img src="assets/hero_home.webp" width="1232" height="851"
+           alt="The Spark web app showing a live local feed with a breaking post from Fulton County">
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="surf" id="how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 class="d2">How Spark works</h2>
+      <p class="lead">Three surfaces, one live picture of your city.</p>
+    </div>
+    <div class="cards3">
+      <article class="card rv">
+        <img src="assets/ob_feed.webp" alt="Spark Feed onboarding screen">
+        <div class="tx"><h3>Feed</h3>
+          <p class="body-t">Unravel the conversation through posting, photo, and video.</p></div>
+      </article>
+      <article class="card rv">
+        <img src="assets/ob_events.webp" alt="Spark Events onboarding screen">
+        <div class="tx"><h3>Events</h3>
+          <p class="body-t">Automatically identifies real time, relevant events, from breaking
+            news to cultural moments.</p></div>
+      </article>
+      <article class="card rv">
+        <img src="assets/ob_map.webp" alt="Spark Map onboarding screen">
+        <div class="tx"><h3>Map</h3>
+          <p class="body-t">Discover events as they are happening nearby.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DIGEST -->
+<section id="digest">
+  <div class="wrap">
+    <div class="panel surf rv">
+      <div class="copy">
+        <span class="kick">Morning Digest</span>
+        <h2 class="d2" style="margin:16px 0 20px">Every side, before you are awake.</h2>
+        <p class="lead">Spark reads the whole story overnight and hands you the overview, the
+          plain-English version, and the argument from both directions. With the sources it used.</p>
+        <div class="tagrow">
+          <span class="tag">Overview</span><span class="tag">Explain like I am 5</span>
+          <span class="tag">Opposite sides</span><span class="tag">Updates</span>
+          <span class="tag">Sources</span>
+        </div>
+      </div>
+      <div class="art">
+        <img src="assets/digest_phone.webp"
+             alt="Morning Digest on iPhone covering four-hour TSA delays at Hartsfield-Jackson Airport">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section id="film" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kick">The launch film</span>
+      <h2 class="d2">Eight beats, one idea</h2>
+    </div>
+    <div class="film rv" id="filmPlayer" role="button" tabindex="0" aria-label="Play the Spark launch film">
+      <div class="film-poster">
+        <div>
+          <h3>Watch it<br>break.</h3>
+          <p>1 min 04 sec &middot; Spark launch film</p>
+          <div class="play" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="film-stage" id="stage" aria-hidden="true"></div>
+      <div class="film-bar" id="bar"></div>
+    </div>
+    <div class="film-meta rv">
+      <span>Placeholder cut. Beats and voiceover are the approved launch script.</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map" style="padding-top:0">
+  <div class="wrap">
+    <div class="panel ink rv" style="align-items:stretch">
+      <div class="art" style="align-self:stretch;display:flex">
+        <img src="assets/pulse_map.webp" style="object-fit:cover;height:100%"
+             alt="The Spark Pulse map showing active pulses and digests across the city">
+      </div>
+      <div class="copy">
+        <span class="kick" style="color:#8fb0ff">Pulse map</span>
+        <h2 class="d3" style="margin:16px 0 20px;color:#fff">See where it happens.</h2>
+        <p class="lead">Every post, event, and alert pinned to the block it came from. Filter by
+          what you care about and watch it move.</p>
+        <div class="tagrow">
+          <span class="tag">Politics</span><span class="tag">Business</span>
+          <span class="tag">Entertainment</span><span class="tag">Health and wellness</span>
+          <span class="tag">Science</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH + BREAKING -->
+<section id="search" style="padding-top:40px">
+  <div class="wrap twoup">
+    <article class="tile rv">
+      <h2 class="d3">Search the live world.</h2>
+      <p class="body-t" style="margin-top:14px">Ask what is happening anywhere and get what is
+        being reported right now, not last week.</p>
+      <div class="art"><img src="assets/search_web.webp" style="border-radius:16px;border:1px solid var(--bord)"
+        alt="Spark search results for a live event, filtered by latest"></div>
+    </article>
+    <article class="tile pink rv">
+      <span class="badge">BREAKING</span>
+      <h2 class="d3">You will know it is breaking.</h2>
+      <p class="body-t" style="margin-top:14px">A breaking badge lands on the post the second a
+        story turns, so you never scroll past the thing that matters.</p>
+      <div class="art"><img src="assets/breaking_phone.webp" style="border-radius:26px;width:300px"
+        alt="Spark feed on iPhone with a breaking badge on a live post"></div>
+    </article>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who">
+  <div class="wrap">
+    <h2 class="d2 rv" style="margin-bottom:56px">Who it is for</h2>
+    <div class="cards3">
+      <article class="aud rv" style="background:var(--surf)">
+        <div class="inner">
+          <h3>Neighbours</h3>
+          <p class="body-t">Know what is happening on your street before it reaches a newsroom.</p>
+          <ul><li>Live local feed</li><li>Events near you</li><li>Breaking alerts</li></ul>
+        </div>
+        <img src="assets/ob_map.webp" alt="Events near you on the Spark map">
+      </article>
+      <article class="aud rv" style="background:#f1eeff">
+        <div class="inner">
+          <h3>Newsrooms</h3>
+          <p class="body-t">Publish where the conversation is already happening, and stay
+            accountable to it.</p>
+          <ul><li>Breaking badge</li><li>Community notes</li><li>Cited sources</li></ul>
+        </div>
+        <img src="assets/breaking_phone.webp" alt="A breaking post in the Spark feed">
+      </article>
+      <article class="aud rv" style="background:#eaf1ff">
+        <div class="inner">
+          <h3>Creators</h3>
+          <p class="body-t">Get paid for the coverage you already do.</p>
+          <ul><li>Creator Studio</li><li>Partner+ ad program</li><li>Subscriptions</li></ul>
+        </div>
+        <img src="assets/search_web.webp" alt="Spark Creator Studio">
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GET -->
+<section id="get" style="padding-top:0">
+  <div class="wrap getgrid">
+    <div class="app-card rv">
+      <div>
+        <h2 class="d3" style="color:#fff">Get the app</h2>
+        <p class="lead" style="margin-top:16px;max-width:300px">Spark is invite only while we
+          launch in Atlanta.</p>
+        <div class="stores">
+          <a class="btn onblue sm" href="#">Download on iOS</a>
+          <a class="btn outline-w sm" href="#">Get it on Android</a>
+        </div>
+      </div>
+      <img src="assets/breaking_phone.webp" alt="Spark running on iPhone">
+    </div>
+    <div class="stack">
+      <div class="pane surf rv">
+        <h3 class="d4">Morning Digest, by email</h3>
+        <p class="body-t">One brief a day. Overview, both sides, and the sources.</p>
+        <form class="field" onsubmit="return false">
+          <input type="email" placeholder="you@email.com" aria-label="Email address">
+          <button class="btn sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="pane lav rv">
+        <h3 class="d4">Have an invite code?</h3>
+        <p class="body-t">Redeem it to create your account. No code, join the waitlist.</p>
+        <form class="field" onsubmit="return false">
+          <input type="text" placeholder="S P R K 2 6" aria-label="Invite code">
+          <button class="btn sm" type="submit">Redeem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="surf" id="trust">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 class="d2">Fast is only worth it if it is true</h2>
+      <p class="lead">Speed and accountability are the same product decision here.</p>
+    </div>
+    <div class="trust3">
+      <div class="tcard rv"><h3>Community notes</h3>
+        <p class="body-t">Anyone can request a note on a post. Context lands next to the claim,
+          not three days later in a correction.</p></div>
+      <div class="tcard rv"><h3>Cited sources</h3>
+        <p class="body-t">Every Morning Digest shows what it read and when it was last updated,
+          so you can go check it yourself.</p></div>
+      <div class="tcard rv"><h3>Opposite sides</h3>
+        <p class="body-t">Contested stories are shown from both directions by default, before
+          you form the opinion.</p></div>
+    </div>
+    <div style="margin-top:48px" class="rv">
+      <span class="kick">From the launch film</span>
+      <div class="beats">
+        <div class="beatcard g">What's happening right in the world</div>
+        <div class="beatcard k">Every angle, one story</div>
+        <div class="beatcard g">Don't chase the moment, be there first</div>
+        <div class="beatcard k">See where it happens</div>
+        <div class="beatcard g">Watch it break</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section>
+  <div class="wrap">
+    <div class="closing rv">
+      <h2 class="d2">It all starts with a spark.</h2>
+      <p class="lead">Live in Atlanta now. Invite only while we grow.</p>
+      <div class="row">
+        <a class="btn onblue" href="#get">Sign up free</a>
+        <a class="btn outline-w" href="#get">Get the app</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <img class="logo" src="assets/spark_wordmark_white.png" alt="Spark">
+        <p style="margin-top:18px;max-width:240px;font-size:15px;line-height:1.6">
+          A live local news network, launching in Atlanta.</p>
+      </div>
+      <div><h4>Product</h4><ul>
+        <li><a href="#how">Feed</a></li><li><a href="#digest">Morning Digest</a></li>
+        <li><a href="#map">Pulse map</a></li><li><a href="#search">Search</a></li>
+        <li><a href="#who">Creator Studio</a></li></ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="#">About</a></li><li><a href="#">Careers</a></li>
+        <li><a href="#">Brand</a></li><li><a href="#">Press</a></li>
+        <li><a href="unfurl.html">Share previews</a></li></ul></div>
+      <div><h4>Support</h4><ul>
+        <li><a href="#">Help</a></li><li><a href="#">Learning Hub</a></li>
+        <li><a href="#trust">Community notes</a></li><li><a href="#">Report a problem</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookies</a></li><li><a href="#">Guidelines</a></li></ul></div>
+    </div>
+    <div class="frule"></div>
+    <div class="fbot">
+      <span>&copy; 2026 Fanbase</span>
+      <span class="social"><a href="#">X</a><a href="#">Instagram</a><a href="#">TikTok</a>
+        <a href="#">YouTube</a><a href="#">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// sticky nav hairline
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 8), {passive:true});
+
+// reveal on scroll
+const io = new IntersectionObserver((es) => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {rootMargin:'0px 0px -8% 0px', threshold:.06});
+document.querySelectorAll('.rv').forEach(n => io.observe(n));
+
+// launch film mock: plays the approved beat script
+const BEATS = [
+  "What's happening right in the world",
+  "What's happening in the communities",
+  "Watch it break.",
+  "Every angle, one story",
+  "Don't chase the moment, be there first.",
+  "See where it happens.",
+  "Spark knows",
+  "Know first"
+];
+const HOLD = 1900;
+const film = document.getElementById('filmPlayer');
+const stage = document.getElementById('stage');
+const bar = document.getElementById('bar');
+let timers = [], playing = false;
+
+BEATS.forEach(t => {
+  const d = document.createElement('div');
+  d.className = 'beat'; d.textContent = t;
+  stage.appendChild(d);
+});
+const nodes = [...stage.children];
+
+function stop(){
+  playing = false;
+  timers.forEach(clearTimeout); timers = [];
+  nodes.forEach(n => n.classList.remove('on'));
+  film.classList.remove('playing');
+  bar.style.transition = 'none'; bar.style.width = '0';
+}
+function play(){
+  if (playing) { stop(); return; }
+  playing = true;
+  film.classList.add('playing');
+  const LEAD = 340;                       // let the poster clear before beat 1 lands
+  const total = LEAD + BEATS.length * HOLD;
+  requestAnimationFrame(() => {
+    bar.style.transition = `width ${total}ms linear`;
+    bar.style.width = '100%';
+  });
+  nodes.forEach((n, i) => {
+    timers.push(setTimeout(() => {
+      nodes.forEach(m => m.classList.remove('on'));
+      n.classList.add('on');
+    }, LEAD + i * HOLD));
+  });
+  timers.push(setTimeout(stop, total + 500));
+}
+film.addEventListener('click', play);
+film.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+});
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  film.removeEventListener('click', play);
+}
+</script>
+</body>
+</html>
