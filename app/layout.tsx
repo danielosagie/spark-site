@@ -12,7 +12,15 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const lexend = Lexend({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-lexend', display: 'swap' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://spark-site.vercel.app'),
+  // Derived from Vercel at build time so og/twitter image URLs are always absolute
+  // and always point at the deployment actually serving them.
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : 'http://localhost:3210',
+  ),
   title: { default: `${SITE.name} — ${SITE.tagline}`, template: `%s — ${SITE.name}` },
   description: SITE.description,
   applicationName: SITE.name,
