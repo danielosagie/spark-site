@@ -11,7 +11,6 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <WhoItIsFor />
-      <Trust />
       <GetApp />
       <Closing />
     </>
