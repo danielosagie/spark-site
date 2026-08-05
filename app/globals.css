@@ -140,8 +140,8 @@ a{color:inherit;text-decoration:none}
   font-size:16px;line-height:20px;color:var(--ink)}
 .acc-item li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ink);
   flex:none}
-.who-art{width:403px;flex:none;border-radius:24px;overflow:hidden;background:var(--surf);
-  border:1px solid var(--bord)}
+.who-art{position:relative;width:403px;flex:none;border-radius:24px;overflow:hidden;
+  background:var(--surf);border:1px solid var(--bord)}
 .who-art img{width:100%;height:100%;object-fit:cover;object-position:top}
 @media(max-width:1000px){
   .who-row{flex-direction:column;align-items:center}
@@ -317,3 +317,10 @@ footer{background:var(--ink);display:flex;flex-direction:column;gap:64px;
 .pointlist li{display:flex;gap:10px;align-items:center;font-family:var(--l);font-weight:500;
   font-size:17px;line-height:28px;color:var(--ink)}
 .pointlist li::before{content:'';width:6px;height:6px;border-radius:50%;background:#7a26e6;flex:none}
+
+/* NOTE: a next/image with `fill` is position:absolute, so every wrapper of one MUST declare a
+   position. Without it the image escapes to the document and paints over the page. A transform
+   on an ancestor (our .rv reveal) accidentally provides a containing block, which hides the bug
+   until the reveal finishes, so it looks intermittent. Wrappers that carry a fill image:
+   .hero-phone (absolute/relative), .card .shot .device (absolute), .who-art (relative),
+   .frow-device (relative). Do not blanket-override these; each needs its own value. */
