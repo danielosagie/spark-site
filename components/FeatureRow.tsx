@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import type { Feature } from '@/lib/content'
+import { MEDIA } from '@/lib/media'
+import { Media } from './Media'
 import { useReveal } from './hooks/useReveal'
 
 /**
@@ -38,14 +40,18 @@ export function FeatureRow({ feature, flip = false }: { feature: Feature; flip?:
             />
           </div>
         ) : (
-          <Image
-            src={feature.image.src}
-            width={feature.image.width}
-            height={feature.image.height}
-            alt={feature.alt}
-            sizes="(max-width: 900px) 90vw, 620px"
-            style={{ width: '100%', height: 'auto' }}
-          />
+          feature.id === 'posting' ? (
+            <Media slot={MEDIA.posting} sizes="(max-width: 900px) 90vw, 620px" />
+          ) : (
+            <Image
+              src={feature.image.src}
+              width={feature.image.width}
+              height={feature.image.height}
+              alt={feature.alt}
+              sizes="(max-width: 900px) 90vw, 620px"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          )
         )}
       </div>
     </section>

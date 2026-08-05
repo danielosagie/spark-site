@@ -324,3 +324,52 @@ footer{background:var(--ink);display:flex;flex-direction:column;gap:64px;
    until the reveal finishes, so it looks intermittent. Wrappers that carry a fill image:
    .hero-phone (absolute/relative), .card .shot .device (absolute), .who-art (relative),
    .frow-device (relative). Do not blanket-override these; each needs its own value. */
+
+/* ================= hero bolt: travelling wave along the edge =================
+   pathLength=1 normalises the outline, so every dash below is a fraction of the
+   perimeter. Dashes shorten toward the tail so the run reads as a crest with a
+   wake, not a single dot. The blurred copy carries the buzz. */
+.bolt-edge{stroke-linecap:round;stroke-linejoin:round;will-change:stroke-dashoffset}
+.bolt-edge--crest{
+  stroke-width:5;
+  stroke-dasharray:.035 .02 .022 .018 .014 .014 .009 .012 .006 .81;
+  animation:boltRun 7s linear infinite}
+.bolt-edge--trail{
+  stroke-width:9;
+  stroke-dasharray:.05 .03 .03 .026 .018 .022 .01 .78;
+  opacity:.5;
+  animation:boltRun 7s linear infinite;
+  animation-delay:-.28s}
+.bolt-edge--glow{
+  stroke-width:26;
+  stroke-dasharray:.08 .92;
+  opacity:.45;
+  animation:boltRun 7s linear infinite, boltBuzz 1.15s ease-in-out infinite;
+  animation-delay:-.1s, 0s}
+@keyframes boltRun{from{stroke-dashoffset:0}to{stroke-dashoffset:-1}}
+@keyframes boltBuzz{0%,100%{opacity:.32}50%{opacity:.68}}
+@media(prefers-reduced-motion:reduce){
+  .bolt-edge{animation:none}
+  .bolt-edge--glow,.bolt-edge--trail{opacity:.35}
+}
+
+/* ================= media slots =================
+   No width here on purpose. `.media` is composed with a layout class (.who-art) or sits
+   in a sizing context (.frow-art), and a width on `.media` would win on source order and
+   override whichever class actually owns the slot's size. */
+.media{position:relative;overflow:hidden}
+.frow-art .media{width:100%}
+.media video,.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  display:block}
+
+/* ================= store badges ================= */
+.badges img{height:64px;width:auto;display:block}
+.badge-link{display:inline-block;border-radius:10px;
+  transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.badge-link:hover{transform:translateY(-1px)}
+
+/* ================= breaking chip ================= */
+.breaking{display:inline-flex;align-items:center;gap:7px;background:#EF4444;color:#fff;
+  border-radius:8px;padding:6px 11px;font-family:var(--l);font-weight:700;font-size:12px;
+  letter-spacing:.06em;flex:none;white-space:nowrap}
+.breaking svg{flex:none}

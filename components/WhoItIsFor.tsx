@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { useId, useState } from 'react'
 import { AUDIENCES } from '@/lib/content'
-import { IMG } from '@/lib/assets'
+import { MEDIA } from '@/lib/media'
+import { Media } from './Media'
 import { useReveal } from './hooks/useReveal'
 
 function Chevron() {
@@ -55,15 +55,11 @@ export function WhoItIsFor() {
             )
           })}
         </div>
-        <div className="who-art">
-          <Image
-            src={IMG.digestPhone.src}
-            alt="A Morning Digest brief open on iPhone"
-            fill
-            sizes="(max-width: 1000px) 100vw, 403px"
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-          />
-        </div>
+        <Media
+          slot={MEDIA.audience}
+          className="who-art"
+          sizes="(max-width: 1000px) 100vw, 403px"
+        />
       </div>
     </section>
   )

@@ -25,6 +25,8 @@ export const NAV_LINKS = [
 
 export type Surface = {
   title: string
+  /** When set, the card title renders as the red status chip from the design. */
+  chip?: boolean
   body: string
   image: Asset
   alt: string
@@ -41,7 +43,8 @@ export const SURFACES: Surface[] = [
     deviceTop: 135,
   },
   {
-    title: 'Events',
+    title: 'BREAKING',
+    chip: true,
     body: 'Automatically identifies real time, relevant events, from breaking news to cultural moments.',
     image: IMG.digestPhone,
     alt: 'A Morning Digest brief on iPhone covering delays at Hartsfield-Jackson Airport',
@@ -256,7 +259,6 @@ export const FOOTER_COLUMNS = [
       { label: 'Careers', href: '/about#press' },
       { label: 'Brand', href: '/about' },
       { label: 'Press', href: '/about#press' },
-      { label: 'Share previews', href: '/share-previews' },
     ],
   },
   {

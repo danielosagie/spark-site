@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { SURFACES, type Surface } from '@/lib/content'
+import { BreakingChip } from './BreakingChip'
 import { useReveal } from './hooks/useReveal'
 
 function SurfaceCard({ surface }: { surface: Surface }) {
@@ -20,7 +21,7 @@ function SurfaceCard({ surface }: { surface: Surface }) {
         </div>
       </div>
       <div className="tx">
-        <h3>{surface.title}</h3>
+        <h3>{surface.chip ? <BreakingChip label={surface.title} /> : surface.title}</h3>
         <p>{surface.body}</p>
       </div>
     </article>
