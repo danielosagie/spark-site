@@ -2,21 +2,20 @@ import Image from 'next/image'
 import { IMG } from '@/lib/assets'
 
 /**
- * The Spark lockup: the real bolt mark plus the Poppins wordmark.
- * The mark is a white-alpha PNG, so `brightness(0)` gives the dark variant.
+ * The Spark wordmark. Vector, so it stays crisp at any size.
+ * The file is white, so the dark variant is a filter rather than a second asset.
  */
-export function Wordmark({ dark = false }: { dark?: boolean }) {
+export function Wordmark({ dark = false, height = 32 }: { dark?: boolean; height?: number }) {
+  const w = Math.round((IMG.wordmark.width / IMG.wordmark.height) * height)
   return (
-    <span className="logo">
-      <Image
-        src={IMG.boltWhite.src}
-        width={IMG.boltWhite.width}
-        height={IMG.boltWhite.height}
-        alt=""
-        priority
-        style={dark ? { filter: 'brightness(0)' } : undefined}
-      />
-      <span className="wm">spark</span>
-    </span>
+    <Image
+      className="wordmark"
+      src={IMG.wordmark.src}
+      width={w}
+      height={height}
+      alt="Spark"
+      priority
+      style={dark ? { filter: 'brightness(0)' } : undefined}
+    />
   )
 }

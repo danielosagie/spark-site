@@ -1,6 +1,10 @@
 /**
  * Every image with its intrinsic size, so next/image always gets correct dimensions
- * and never causes layout shift. All art is a real Spark product screen.
+ * and never causes layout shift.
+ *
+ * Rasters here are real product screens, exported at 2x their largest rendered size.
+ * Marks and badges are SVG where we have it, because they need to stay crisp at any
+ * size and recolour from CSS.
  */
 export type Asset = { src: string; width: number; height: number }
 
@@ -11,12 +15,23 @@ const a = (file: string, width: number, height: number): Asset => ({
 })
 
 export const IMG = {
-  wordmarkWhite: a('spark_wordmark_white.png', 385, 137),
-  boltWhite: a('spark_bolt_white.png', 104, 137),
+  /** Vector. Recoloured with a filter for the light nav. */
+  wordmark: a('spark_wordmark_white.svg', 90, 32),
+  boltMark: a('spark_bolt_white.png', 71, 93),
+  breakingBadge: a('breakingbadge.png', 435, 96),
+
+  /** Card compositions: phone plus its surround, sized for the 453x534 card slot. */
+  cardFeed: a('feed.webp', 906, 1067),
+  cardBreaking: a('breaking.webp', 906, 1067),
+  cardMap: a('map.webp', 906, 1068),
+
+  /** Full-bleed phone screens. */
+  heroPhone: a('hero_phone.webp', 880, 1912),
+  digest: a('digest.webp', 880, 1912),
+  profile: a('profile.webp', 880, 1912),
+
+  storeGooglePlay: a('badge_google_play.png', 215, 64),
+  storeAppStore: a('badge_app_store.png', 191, 64),
+
   og: a('og.webp', 1200, 630),
-  feedPhone: a('breaking_phone.webp', 300, 652),
-  digestPhone: a('digest_phone.webp', 430, 934),
-  mapPhone: a('map_phone.webp', 268, 584),
-  searchWeb: a('search_web.webp', 596, 476),
-  videoStill: a('video_still.webp', 489, 290),
 } as const

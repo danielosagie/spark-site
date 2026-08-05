@@ -10,15 +10,13 @@ function SurfaceCard({ surface }: { surface: Surface }) {
   return (
     <article className={`card ${cls}`} ref={ref}>
       <div className="shot">
-        <div className="device" style={{ top: surface.deviceTop }}>
-          <Image
-            src={surface.image.src}
-            alt={surface.alt}
-            fill
-            sizes="(max-width: 1000px) 100vw, 400px"
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-          />
-        </div>
+        <Image
+          src={surface.image.src}
+          alt={surface.alt}
+          fill
+          sizes="(max-width: 1000px) 92vw, 453px"
+          style={{ objectFit: 'cover', objectPosition: 'top' }}
+        />
       </div>
       <div className="tx">
         <h3>{surface.chip ? <BreakingChip label={surface.title} /> : surface.title}</h3>

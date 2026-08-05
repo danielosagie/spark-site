@@ -1,47 +1,36 @@
 /**
  * MEDIA SLOTS
  *
- * Every place on the site that can hold a photo or a piece of footage.
- * A slot always ships with a `poster` still so the page is complete before any
- * video exists. When stock footage lands, drop the file in `public/media/` and
- * set `src` — nothing else needs to change, and the layout will not shift
- * because the aspect ratio is fixed here.
+ * Footage that plays inline. Every slot ships a poster still so the page is
+ * complete before a video loads, and the aspect ratio is locked per slot so
+ * swapping media can never shift the layout.
  *
- * Encoding for `src`: H.264 MP4, no audio track, <= 8s, <= 2 MB, and matching
- * the slot's aspect ratio. Muted autoplay loops are the only thing that plays
- * inline on iOS, so audio is pointless weight.
+ * All three audience clips are 9:16 portrait, transcoded to 720x1280 H.264 with
+ * no audio track. Muted autoplay is the only thing that plays inline on iOS, so
+ * audio would be dead weight.
  */
-import { IMG, type Asset } from './assets'
-
 export type MediaSlot = {
-  /** Stable id, used as the key when handing footage over. */
   id: string
-  /** Where it appears, for whoever is sourcing the footage. */
   where: string
-  /** Still frame. Always present, doubles as the video poster. */
-  poster: Asset
-  /** Path under /media once footage exists. Undefined renders the poster alone. */
+  poster: string
   src?: string
   alt: string
-  /** Locked so swapping media can never shift the page. */
+  /** Locked so swapping media cannot shift the page. */
   ratio: `${number}/${number}`
 }
 
-export const MEDIA: Record<string, MediaSlot> = {
-  audience: {
-    id: 'audience',
-    where: 'Home, Who it is for, right-hand panel',
-    poster: { src: '/assets/street_poster.webp', width: 403, height: 717 },
-    // src: '/media/audience.mp4',
-    alt: 'A cyclist riding past a mural on a neighbourhood street',
-    ratio: '403/717',
-  },
-  posting: {
-    id: 'posting',
-    where: 'Features, Short-form text and video',
-    poster: IMG.videoStill,
-    // src: '/media/posting.mp4',
-    alt: 'A video post in the Spark feed showing a live local incident',
-    ratio: '489/290',
-  },
+const clip = (id: string, alt: string, where: string): MediaSlot => ({
+  id,
+  where,
+  poster: `/media/${id}_poster.webp`,
+  src: `/media/${id}.mp4`,
+  alt,
+  ratio: '9/16',
+})
+
+/** Keyed by audience id so the panel swaps with the open accordion item. */
+export const AUDIENCE_MEDIA: Record<string, MediaSlot> = {
+  neighbors: clip('neighbors', 'A neighbourhood street in daily use', 'Home, Who it is for'),
+  creators: clip('creators', 'A creator filming on location', 'Home, Who it is for'),
+  newsrooms: clip('newsrooms', 'A reporter covering a story in the field', 'Home, Who it is for'),
 }

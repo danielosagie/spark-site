@@ -33,7 +33,7 @@ export default function Unfurl() {
           <Phone>
             <Bubble dark>
               <div className="lp-media">
-                <img src={IMG.videoStill.src} alt="" />
+                <img src={IMG.cardBreaking.src} alt="" />
                 <PlayButton />
               </div>
               <div className="lp-body">
@@ -117,7 +117,7 @@ export default function Unfurl() {
         <div>
           <div className="x">
             <div className="x-head">
-              <div className="x-av"><img src={IMG.boltWhite.src} alt="" /></div>
+              <div className="x-av"><img src={IMG.boltMark.src} alt="" /></div>
               <div>
                 <div className="x-name">Maya Chen</div>
                 <div className="x-handle">@mayawrites</div>
@@ -144,7 +144,7 @@ export default function Unfurl() {
         <div>
           <div className="x">
             <div className="x-head">
-              <div className="x-av"><img src={IMG.boltWhite.src} alt="" /></div>
+              <div className="x-av"><img src={IMG.boltMark.src} alt="" /></div>
               <div>
                 <div className="x-name">ATL Fire Watch</div>
                 <div className="x-handle">@ATLFireWatch</div>
@@ -153,7 +153,7 @@ export default function Unfurl() {
             <div className="x-text">Two car crash on Peachtree, one vehicle fully involved.</div>
             <div className="x-card">
               <div className="x-media">
-                <img src={IMG.videoStill.src} alt="" />
+                <img src={IMG.cardBreaking.src} alt="" />
                 <PlayButton />
               </div>
               <div className="x-cap">
@@ -182,7 +182,7 @@ export default function Unfurl() {
           <div className="slack">
             <div className="slack-rail">
               <div className="slack-app">
-                <div className="lp-icon"><img src={IMG.boltWhite.src} alt="" /></div>{' '}
+                <div className="lp-icon"><img src={IMG.boltMark.src} alt="" /></div>{' '}
                 Spark
               </div>
               <div className="slack-t">ATL Fire Watch (@ATLFireWatch) on Spark</div>
@@ -191,7 +191,7 @@ export default function Unfurl() {
                 everybody made it out safely.
               </div>
               <div className="slack-img">
-                <img src={IMG.videoStill.src} alt="" />
+                <img src={IMG.cardBreaking.src} alt="" />
                 <PlayButton />
               </div>
             </div>

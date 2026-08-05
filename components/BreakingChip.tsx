@@ -1,5 +1,22 @@
-/** The red status chip from the design. Uppercase is allowed here: the brand
- *  reserves it for compact status language, which is exactly what this is. */
+import Image from 'next/image'
+import { IMG } from '@/lib/assets'
+
+/** The real badge asset, used where the label is exactly BREAKING NOW. */
+export function BreakingBadge({ height = 28 }: { height?: number }) {
+  const w = Math.round((IMG.breakingBadge.width / IMG.breakingBadge.height) * height)
+  return (
+    <Image
+      className="breaking-badge"
+      src={IMG.breakingBadge.src}
+      width={w}
+      height={height}
+      alt="Breaking now"
+      priority
+    />
+  )
+}
+
+/** CSS chip for other labels, matched to the badge's red and radius. */
 export function BreakingChip({ label = 'BREAKING' }: { label?: string }) {
   return (
     <span className="breaking">

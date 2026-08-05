@@ -3,10 +3,12 @@ import type { MediaSlot } from '@/lib/media'
 
 /**
  * Renders a media slot. Shows the poster until footage exists, then an inline
- * muted loop. The aspect ratio comes from the slot, so swapping one for the
- * other never moves the page.
+ * muted loop. Ratio comes from the slot, so swapping one for the other never
+ * moves the page.
  *
- * Muted + playsInline + autoPlay is the only combination iOS will play inline.
+ * muted + playsInline + autoPlay is the only combination iOS plays inline.
+ * `key` on the video makes React remount it when the slot changes, so switching
+ * tabs actually restarts the clip instead of showing a frozen last frame.
  */
 export function Media({
   slot, className = '', sizes = '100vw', priority = false,
@@ -17,7 +19,8 @@ export function Media({
     return (
       <div className={`media ${className}`} style={style}>
         <video
-          poster={slot.poster.src}
+          key={slot.src}
+          poster={slot.poster}
           autoPlay
           muted
           loop
@@ -26,8 +29,7 @@ export function Media({
           aria-label={slot.alt}
         >
           <source src={slot.src} type="video/mp4" />
-          {/* Shown if the browser cannot play the source at all. */}
-          <img src={slot.poster.src} alt={slot.alt} />
+          <img src={slot.poster} alt={slot.alt} />
         </video>
       </div>
     )
@@ -35,14 +37,8 @@ export function Media({
 
   return (
     <div className={`media ${className}`} style={style}>
-      <Image
-        src={slot.poster.src}
-        alt={slot.alt}
-        fill
-        sizes={sizes}
-        priority={priority}
-        style={{ objectFit: 'cover' }}
-      />
+      <Image src={slot.poster} alt={slot.alt} fill sizes={sizes} priority={priority}
+        style={{ objectFit: 'cover' }} />
     </div>
   )
 }

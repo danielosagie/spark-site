@@ -30,36 +30,32 @@ export type Surface = {
   body: string
   image: Asset
   alt: string
-  /** Top offset of the device inside its clipped frame, from the Paper export. */
-  deviceTop: number
 }
 
 export const SURFACES: Surface[] = [
   {
     title: 'Feed',
     body: 'Unravel the conversation through posting, photo, and video.',
-    image: IMG.feedPhone,
-    alt: 'The Spark feed on iPhone showing a live local post with a breaking badge',
-    deviceTop: 135,
+    image: IMG.cardFeed,
+    alt: 'The Spark feed on iPhone showing posts from across the city',
   },
   {
     title: 'BREAKING',
     chip: true,
     body: 'Automatically identifies real time, relevant events, from breaking news to cultural moments.',
-    image: IMG.digestPhone,
-    alt: 'A Morning Digest brief on iPhone covering delays at Hartsfield-Jackson Airport',
-    deviceTop: 48,
+    image: IMG.cardBreaking,
+    alt: 'A breaking post in the Spark feed with live video from the scene',
   },
   {
     title: 'Map',
     body: 'Discover events as they are happening nearby.',
-    image: IMG.mapPhone,
+    image: IMG.cardMap,
     alt: 'The Spark live map on iPhone with activity pinned across the city',
-    deviceTop: 55,
   },
 ]
 
 export type Audience = {
+  id: 'neighbors' | 'creators' | 'newsrooms'
   title: string
   body: string
   points: string[]
@@ -68,18 +64,21 @@ export type Audience = {
 
 export const AUDIENCES: Audience[] = [
   {
+    id: 'neighbors',
     title: 'Neighbors',
     body: 'Know what is happening on your street before it reaches a newsroom.',
     points: ['Live local feed', 'Events near you', 'Breaking alerts'],
     background: 'var(--surf)',
   },
   {
+    id: 'creators',
     title: 'Creators',
     body: 'Get paid for the coverage you already do.',
     points: ['Creator Studio', 'Partner+ ad program', 'Subscriptions'],
     background: 'var(--sky)',
   },
   {
+    id: 'newsrooms',
     title: 'Newsroom',
     body: 'Publish where the conversation is already happening, and stay accountable to it.',
     points: ['Breaking badge', 'Community notes', 'Cited sources'],
@@ -128,9 +127,9 @@ export const FEATURES: Feature[] = [
       'Following stays strictly to the accounts you chose',
       'Breaking badges mark a story the moment it turns',
     ],
-    image: IMG.feedPhone,
+    image: IMG.cardFeed,
     alt: 'The Spark feed on iPhone with the For You and Following tabs',
-    shape: 'device',
+    shape: 'panel',
   },
   {
     id: 'posting',
@@ -142,7 +141,7 @@ export const FEATURES: Feature[] = [
       'Polls, location, and GIF when they help',
       'Quote and repost to move a story forward',
     ],
-    image: IMG.videoStill,
+    image: IMG.cardBreaking,
     alt: 'A video post in the Spark feed showing a live local incident',
     shape: 'panel',
   },
@@ -156,7 +155,7 @@ export const FEATURES: Feature[] = [
       'Filter by Politics, Business, Entertainment, Health and wellness, Science',
       'Morning Digest turns the day into one brief with both sides',
     ],
-    image: IMG.digestPhone,
+    image: IMG.digest,
     alt: 'A Morning Digest topic brief on iPhone with a subscribe to topic control',
     shape: 'device',
   },
@@ -170,9 +169,9 @@ export const FEATURES: Feature[] = [
       'Role and interest badges say what an account covers',
       'Creator Studio for the people who report here full time',
     ],
-    image: IMG.searchWeb,
-    alt: 'A Spark profile and account list on the web app',
-    shape: 'panel',
+    image: IMG.profile,
+    alt: 'A Spark profile showing a verified badge and what the account covers',
+    shape: 'device',
   },
   {
     id: 'search',
@@ -184,9 +183,9 @@ export const FEATURES: Feature[] = [
       'Trending shows what the city is actually on',
       'The map answers where, the moment you ask',
     ],
-    image: IMG.mapPhone,
+    image: IMG.cardMap,
     alt: 'Spark search and the live map on iPhone with trending topics',
-    shape: 'device',
+    shape: 'panel',
   },
 ]
 

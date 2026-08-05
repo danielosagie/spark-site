@@ -2,7 +2,7 @@
 
 import { useId, useState } from 'react'
 import { AUDIENCES } from '@/lib/content'
-import { MEDIA } from '@/lib/media'
+import { AUDIENCE_MEDIA } from '@/lib/media'
 import { Media } from './Media'
 import { useReveal } from './hooks/useReveal'
 
@@ -18,11 +18,14 @@ function Chevron() {
 }
 
 export function WhoItIsFor() {
-  // Single-open accordion. The design ships with the first item expanded.
+  // Single-open accordion. The footage panel follows whichever tab is open.
   const [open, setOpen] = useState(0)
   const uid = useId()
   const [titleRef, titleCls] = useReveal<HTMLHeadingElement>()
   const [rowRef, rowCls] = useReveal<HTMLDivElement>()
+
+  const current = AUDIENCES[open] ?? AUDIENCES[0]
+  const slot = AUDIENCE_MEDIA[current.id]
 
   return (
     <section className="who" id="who" aria-labelledby="who-title">
@@ -34,14 +37,14 @@ export function WhoItIsFor() {
             const panelId = `${uid}-panel-${i}`
             const btnId = `${uid}-btn-${i}`
             return (
-              <div key={a.title} className="acc-item" data-open={isOpen} style={{ background: a.background }}>
+              <div key={a.id} className="acc-item" data-open={isOpen} style={{ background: a.background }}>
                 <div className="inner">
                   <button
                     id={btnId}
                     className="acc-head"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    onClick={() => setOpen(isOpen ? -1 : i)}
+                    onClick={() => setOpen(i)}
                   >
                     <h3>{a.title}</h3>
                     <Chevron />
@@ -55,11 +58,7 @@ export function WhoItIsFor() {
             )
           })}
         </div>
-        <Media
-          slot={MEDIA.audience}
-          className="who-art"
-          sizes="(max-width: 1000px) 100vw, 403px"
-        />
+        {slot && <Media slot={slot} className="who-art" sizes="(max-width: 1000px) 92vw, 403px" />}
       </div>
     </section>
   )

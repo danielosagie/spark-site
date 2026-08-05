@@ -23,7 +23,7 @@ export function LinkFoot({
   return (
     <div className="lp-foot">
       <div className={`lp-icon${gradientIcon ? ' grad' : ''}`}>
-        <img src={IMG.boltWhite.src} alt="" />
+        <img src={IMG.boltMark.src} alt="" />
       </div>
       <div className="lp-meta">
         <div className="lp-title">{title}</div>
@@ -59,7 +59,7 @@ export function TextPostCard() {
       <div className="nm">Maya Chen</div>
       <div className="hd">@mayawrites</div>
       <div className="bodytx">APS board just voted. The meal debt is gone.</div>
-      <div className="lock"><img src={IMG.wordmarkWhite.src} alt="" /></div>
+      <div className="lock"><img src={IMG.wordmark.src} alt="" /></div>
     </>
   )
 }
@@ -70,7 +70,7 @@ export function ReferralCard() {
       <div className="rhead">You&rsquo;re invited to Spark</div>
       <div className="plate"><span className="code">7F3A9C2E1B</span></div>
       <div className="rsub">Maya Chen invited you</div>
-      <div className="lock"><img src={IMG.wordmarkWhite.src} alt="" /></div>
+      <div className="lock"><img src={IMG.wordmark.src} alt="" /></div>
     </>
   )
 }

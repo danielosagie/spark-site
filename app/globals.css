@@ -22,7 +22,8 @@ a{color:inherit;text-decoration:none}
 /* ---------- 1 · wire ticker ---------- */
 .ticker{background:var(--ink);overflow:hidden}
 .ticker-in{display:flex;align-items:center;gap:22px;padding-block:12px}
-.ticker .mark{height:36px;width:auto;flex-shrink:0}
+.breaking-badge{height:28px;width:auto;flex:none}
+.wordmark{height:32px;width:auto}
 .ticker span{font-family:var(--l);font-size:14px;line-height:18px;color:var(--dim);
   white-space:nowrap}
 .ticker .sep{color:var(--dim2)}
@@ -33,7 +34,7 @@ a{color:inherit;text-decoration:none}
 }
 @media(max-width:720px){
   .ticker .t2,.ticker .s1{display:none}
-  .ticker .mark{height:26px}
+  .breaking-badge{height:22px}
   .ticker span{overflow:hidden;text-overflow:ellipsis}
 }
 
@@ -59,15 +60,16 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){.nav-links,.nav .signin{display:none}}
 
 /* ---------- 3 · hero ---------- */
-.hero{position:relative;height:900px;overflow:hidden}
+.hero{position:relative;overflow:hidden}
+.hero-stage{position:relative;width:1600px;max-width:100%;margin:0 auto;height:900px}
 .hero .bolt{position:absolute;width:798px;height:1050px;
-  left:calc(50% + 484px);top:13%;translate:-50%;overflow:visible;pointer-events:none}
+  left:1284px;top:13%;translate:-50%;overflow:visible;pointer-events:none}
 .hero-copy{position:absolute;left:92px;top:220px;width:1000px;
   display:flex;flex-direction:column;gap:12px}
 .hero-copy h1{font-family:var(--p);font-weight:800;font-size:120px;line-height:176px;
   letter-spacing:-.05em;color:var(--ink2)}
 .hero-copy p{font-family:var(--i);font-size:21px;line-height:34px;color:var(--ink2);width:640px}
-.hero-cta{position:absolute;left:96px;top:510px;display:flex;gap:12px}
+.hero-cta{display:flex;gap:12px;margin-top:28px}
 .btn-l{display:inline-flex;align-items:center;border-radius:999px;padding:18px 34px;
   font-family:var(--l);font-weight:600;font-size:17px;line-height:22px;
   background:var(--ink2);color:#fff;cursor:pointer;
@@ -80,17 +82,21 @@ a{color:inherit;text-decoration:none}
   transform-origin:0% 0%;background:#DDD;
   filter:drop-shadow(#7A26E6 0px 4px 5.2px) drop-shadow(#2871FA 0px 30px 20.4px)}
 .hero-phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* Below the design width the fixed stage becomes a normal stacked flow: copy, then
+   the phone sitting on the bolt. Both stay in one relative parent so they keep their
+   relationship instead of drifting apart. */
 @media(max-width:1500px){
-  .hero{height:auto;padding-block:80px 0}
-  .hero .bolt{left:auto;right:-320px;top:2%;translate:none;width:620px;height:820px;opacity:.9;
-    z-index:0}
-  .hero-copy,.hero-cta,.hero-phone{position:relative;z-index:1}
-  .hero-copy{position:static;width:100%;max-width:840px;padding-inline:var(--gut)}
-  .hero-copy h1{font-size:clamp(56px,9vw,120px);line-height:1.06}
-  .hero-copy p{width:100%;max-width:600px;font-size:clamp(17px,1.7vw,21px);line-height:1.6}
-  .hero-cta{position:static;padding:36px var(--gut) 0;flex-wrap:wrap}
-  .hero-phone{position:relative;left:auto;top:auto;rotate:4deg;margin:80px auto 90px;
-    width:min(380px,72vw);height:auto;aspect-ratio:380/826}
+  .hero{padding-block:64px 0}
+  .hero-stage{width:100%;height:auto;display:flex;flex-direction:column;align-items:center}
+  .hero .bolt{left:50%;top:auto;bottom:-6%;translate:-50%;width:min(760px,124vw);height:auto;
+    aspect-ratio:798/1050;opacity:.95;z-index:0}
+  .hero-copy{position:static;width:100%;max-width:840px;padding-inline:var(--gut);
+    align-items:flex-start;z-index:1}
+  .hero-copy h1{font-size:clamp(52px,9vw,120px);line-height:1.04}
+  .hero-copy p{width:100%;max-width:600px;font-size:clamp(17px,1.9vw,21px);line-height:1.6}
+  .hero-cta{flex-wrap:wrap;margin-top:32px}
+  .hero-phone{position:relative;left:auto;top:auto;rotate:4deg;
+    margin:64px auto 0;width:min(340px,72vw);height:auto;aspect-ratio:380/826;z-index:1}
 }
 
 /* ---------- 4 · how spark works ---------- */
@@ -106,11 +112,7 @@ a{color:inherit;text-decoration:none}
   overflow:hidden;display:flex;flex-direction:column;
   transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s}
 .card:hover{transform:translateY(-3px);box-shadow:0 22px 54px -26px rgba(17,20,24,.2)}
-.card .shot{height:534px;border:2px solid var(--bord);border-radius:16px;
-  position:relative;overflow:hidden;background:#fff;margin:-1px}
-.card .shot .device{position:absolute;left:50%;translate:-50%;top:48px;width:400px;height:869px;
-  border-radius:25px;outline:3px solid #D1D1D1;overflow:hidden;background:#fff}
-.card .shot .device img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .shot{position:relative;aspect-ratio:453/534;overflow:hidden;background:#fff}
 .card .tx{padding:28px 32px 36px;display:flex;flex-direction:column;gap:10px}
 .card .tx h3{font-family:var(--p);font-weight:600;font-size:26px;line-height:32px;
   letter-spacing:-.02em;color:var(--ink)}
@@ -223,14 +225,6 @@ footer{background:var(--ink);display:flex;flex-direction:column;gap:64px;
   .acc-head svg{transition:none}
 }
 
-/* ---------- narrow: the bolt must clear the hero copy, not sit under it ----------
-   Declared last so it wins over the 1500px hero block above. */
-@media(max-width:900px){
-  .hero .bolt{right:-58%;top:44%;left:auto;translate:none;
-    width:min(560px,135vw);height:auto;aspect-ratio:798/1050;opacity:.95;z-index:0}
-  .hero-copy h1{font-size:clamp(52px,13vw,84px)}
-  .hero-phone{margin-top:56px}
-}
 
 /* ================= shared utilities ================= */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
@@ -369,7 +363,91 @@ footer{background:var(--ink);display:flex;flex-direction:column;gap:64px;
 .badge-link:hover{transform:translateY(-1px)}
 
 /* ================= breaking chip ================= */
-.breaking{display:inline-flex;align-items:center;gap:7px;background:#EF4444;color:#fff;
-  border-radius:8px;padding:6px 11px;font-family:var(--l);font-weight:700;font-size:12px;
+.breaking{display:inline-flex;align-items:center;gap:7px;background:#FF2B00;color:#fff;
+  border-radius:10px;padding:7px 12px;font-family:var(--l);font-weight:700;font-size:12px;
   letter-spacing:.06em;flex:none;white-space:nowrap}
 .breaking svg{flex:none}
+
+/* ================================================================
+   MOBILE
+   The design is authored at 1600. Everything below re-flows rather
+   than scaling down, and touch targets are brought up to 44px.
+   ================================================================ */
+@media(max-width:900px){
+  /* nav: three short links fit, so keep them rather than hiding navigation */
+  .nav-links{display:flex;gap:20px}
+  .nav-links a{font-size:15px}
+  .nav .signin{display:none}
+  .nav-in{gap:20px;padding-block:16px}
+  .pill{padding:12px 20px;font-size:15px}
+
+  .hero{padding-block:40px 0}
+  .hero-copy h1{font-size:clamp(46px,13vw,84px)}
+  .hero .bolt{width:min(640px,140vw);bottom:-4%;opacity:.92}
+  .hero-phone{margin-top:48px;width:min(300px,74vw)}
+  .btn-l{padding:15px 26px;font-size:16px}
+
+  section{padding-block:64px}
+  .how,.who{padding:64px var(--gut);gap:36px;border-radius:0}
+  .h-head h2,.who h2{font-size:clamp(30px,7.5vw,44px)}
+  .h-head p{font-size:17px}
+
+  .cards{gap:18px}
+  .card .tx{padding:22px 24px 28px}
+  .card .tx h3{font-size:23px}
+
+  .acc-item{padding:28px 24px 0;border-radius:24px}
+  .acc-item .inner{gap:12px;padding-bottom:24px}
+  .acc-head{min-height:44px}
+  .acc-head h3{font-size:24px}
+  .acc-item p{font-size:16px;line-height:26px}
+
+  .getapp{padding-block:64px;gap:14px}
+  .getapp h2{font-size:clamp(28px,7vw,36px)}
+  .badges img{height:52px}
+
+  .closing{padding:48px 22px;gap:18px}
+  .closing h2{font-size:clamp(28px,7.6vw,44px)}
+  .closing .sub{font-size:17px}
+  .field{width:100%;padding:5px 5px 5px 16px}
+  .field input{font-size:16px}          /* 16px stops iOS zooming the page on focus */
+  .field button{padding:12px 18px}
+
+  footer{padding:56px var(--gut) 40px;gap:40px}
+  .fcols{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .fbrand{grid-column:1 / -1}
+  .fbot{flex-direction:column;align-items:flex-start;gap:16px}
+  .social{flex-wrap:wrap;gap:18px}
+
+  /* features + about */
+  .page-hero{padding:48px 0 24px}
+  .page-hero h1{font-size:clamp(34px,8.5vw,56px);max-width:none}
+  .frow{padding:56px var(--gut);gap:32px}
+  .frow-copy h2{font-size:clamp(26px,6.5vw,38px)}
+  .frow-device{width:min(280px,66vw)}
+  .prose p{font-size:17px;line-height:1.7}
+  .split-in{gap:32px;padding-top:32px}
+  .pointlist{gap:12px 20px}
+}
+
+@media(max-width:520px){
+  .nav-links{display:none}          /* below this the wordmark plus CTA is all that fits */
+  .ticker-in{gap:10px}
+  .hero-copy h1{font-size:clamp(40px,13vw,60px)}
+  .hero-cta{width:100%}
+  .hero-cta .btn-l{flex:1 1 auto;justify-content:center}
+  .badges{flex-direction:column;align-items:center;gap:10px}
+  .fcols{grid-template-columns:1fr}
+}
+
+/* Never let a media slot exceed the viewport on a phone. */
+@media(max-width:1000px){
+  .who-art{width:100%;max-width:420px;margin-inline:auto}
+}
+
+/* Footer links are 18px of text; on touch they need a 44px target. */
+@media(max-width:900px){
+  .fcol a,.social a{display:flex;align-items:center;min-height:44px}
+  .fcol{gap:0}
+  .social{gap:14px}
+}
