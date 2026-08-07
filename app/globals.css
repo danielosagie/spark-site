@@ -472,11 +472,10 @@ footer{background:var(--ink);display:flex;flex-direction:column;gap:64px;
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 
 /* ================= feature switcher ================= */
-.switch{display:grid;grid-template-columns:460px 1fr;gap:clamp(32px,6vw,88px);
+.switch{display:grid;grid-template-columns:400px 1fr;gap:clamp(32px,6vw,88px);
   align-items:start;width:100%;max-width:1200px;margin:0 auto}
-.switch-art{position:sticky;top:120px}
-.switch-phone{position:relative;aspect-ratio:453/534;border-radius:24px;overflow:hidden;
-  background:#fff;box-shadow:0 30px 70px -34px rgba(17,20,24,.3)}
+.switch-art{position:sticky;top:96px}
+.switch-phone{position:relative;aspect-ratio:810/1734;max-width:400px;margin-inline:auto}
 .switch-phone img{opacity:0;transition:opacity .45s cubic-bezier(0,0,0,1)}
 .switch-phone img.on{opacity:1}
 .switch-steps{list-style:none;display:flex;flex-direction:column;gap:20px;padding-block:8vh}

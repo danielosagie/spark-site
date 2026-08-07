@@ -303,7 +303,7 @@ export const SWITCH_STEPS: SwitchStep[] = [
     id: 'feed',
     title: 'Feed',
     body: 'Unravel the conversation through posting, photo, and video.',
-    image: IMG.cardFeed,
+    image: IMG.phoneFeed,
     alt: 'The Spark feed on iPhone showing posts from across the city',
   },
   {
@@ -311,14 +311,7 @@ export const SWITCH_STEPS: SwitchStep[] = [
     title: 'BREAKING',
     chip: true,
     body: 'Automatically identifies real time, relevant events, from breaking news to cultural moments.',
-    image: IMG.cardBreaking,
+    image: IMG.phoneBreaking,
     alt: 'A breaking post in the Spark feed with live video from the scene',
-  },
-  {
-    id: 'map',
-    title: 'Map',
-    body: 'Discover events as they are happening nearby.',
-    image: IMG.cardMap,
-    alt: 'The Spark live map on iPhone with activity pinned across the city',
   },
 ]

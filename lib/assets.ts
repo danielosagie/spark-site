@@ -27,6 +27,8 @@ export const IMG = {
 
   /** Full-bleed phone screens. */
   heroPhone: a('hero_phone.webp', 880, 1912),
+  phoneFeed: a('phone_feed.webp', 920, 1969),
+  phoneBreaking: a('phone_breaking.webp', 920, 1976),
   digest: a('digest.webp', 880, 1912),
   profile: a('profile.webp', 880, 1912),
 
