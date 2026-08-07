@@ -24,8 +24,9 @@ export default function FeaturesPage() {
           <p className="kick">Features</p>
           <h1>Everything Spark does, and why it is there.</h1>
           <p className="lead">
-            Spark is built around one job: get you the story while it is still happening, from the
-            people who are in it, with enough context to know what you are reading.
+            Spark is built around one job: to tell you the stories that matter most to you,
+            directly from the people who are in it, with enough context to know what you are
+            reading.
           </p>
         </div>
       </section>

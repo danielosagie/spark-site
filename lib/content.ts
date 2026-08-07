@@ -3,9 +3,9 @@ import { IMG, type Asset } from './assets'
 export const SITE = {
   name: 'Spark',
   parent: 'Fanbase',
-  tagline: 'Know first.',
+  tagline: 'Break The Story',
   description:
-    'Spark is a live local news network. The story reaches you from the people standing in it, the moment it turns.',
+    'Spark is where the culture speaks first. It is a news network where creators go to break what is happening now.',
   city: 'Atlanta',
 } as const
 
@@ -80,7 +80,7 @@ export const AUDIENCES: Audience[] = [
   {
     id: 'newsrooms',
     title: 'Newsroom',
-    body: 'Publish where the conversation is already happening, and stay accountable to it.',
+    body: 'Source your next story and highlight what is happening in your community.',
     points: ['Breaking badge', 'Community notes', 'Cited sources'],
     background: 'var(--lav)',
   },
@@ -281,3 +281,44 @@ export const FOOTER_COLUMNS = [
 ] as const
 
 export const SOCIALS = ['X', 'Instagram', 'TikTok', 'YouTube', 'LinkedIn'] as const
+
+/* ------------------------------------------------- landing feature switcher */
+
+/**
+ * The landing "How Spark works" section. The phone follows whichever card is
+ * active as you scroll, so the copy and the screen always agree.
+ */
+export type SwitchStep = {
+  id: string
+  title: string
+  body: string
+  /** Rendered as the red status chip instead of a text title. */
+  chip?: boolean
+  image: Asset
+  alt: string
+}
+
+export const SWITCH_STEPS: SwitchStep[] = [
+  {
+    id: 'feed',
+    title: 'Feed',
+    body: 'Unravel the conversation through posting, photo, and video.',
+    image: IMG.cardFeed,
+    alt: 'The Spark feed on iPhone showing posts from across the city',
+  },
+  {
+    id: 'breaking',
+    title: 'BREAKING',
+    chip: true,
+    body: 'Automatically identifies real time, relevant events, from breaking news to cultural moments.',
+    image: IMG.cardBreaking,
+    alt: 'A breaking post in the Spark feed with live video from the scene',
+  },
+  {
+    id: 'map',
+    title: 'Map',
+    body: 'Discover events as they are happening nearby.',
+    image: IMG.cardMap,
+    alt: 'The Spark live map on iPhone with activity pinned across the city',
+  },
+]

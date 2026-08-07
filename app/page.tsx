@@ -1,5 +1,5 @@
 import { Hero } from '@/components/Hero'
-import { HowItWorks } from '@/components/HowItWorks'
+import { FeatureSwitcher } from '@/components/FeatureSwitcher'
 import { WhoItIsFor } from '@/components/WhoItIsFor'
 import { Trust } from '@/components/Trust'
 import { GetApp } from '@/components/GetApp'
@@ -9,10 +9,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <HowItWorks />
+      <FeatureSwitcher />
       <WhoItIsFor />
-      <GetApp />
+      <Trust />
       <Closing />
+      <GetApp />
     </>
   )
 }
