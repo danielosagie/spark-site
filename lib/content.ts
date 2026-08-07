@@ -86,21 +86,6 @@ export const AUDIENCES: Audience[] = [
   },
 ]
 
-/** Launch collateral. Every claim maps to a shipped product surface. */
-export const TRUST = [
-  {
-    title: 'Community notes',
-    body: 'Anyone can request a note on a post. Context lands next to the claim, not three days later in a correction.',
-  },
-  {
-    title: 'Cited sources',
-    body: 'Every Morning Digest shows what it read and when it was last updated, so you can go check it yourself.',
-  },
-  {
-    title: 'Opposite sides',
-    body: 'Contested stories are shown from both directions by default, before you form the opinion.',
-  },
-] as const
 
 /* --------------------------------------------------------------- features */
 
